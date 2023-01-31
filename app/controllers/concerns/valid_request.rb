@@ -17,7 +17,17 @@ module ValidRequest
     request1 = Net::HTTP::Post.new(uri.request_uri, header)
     
     # Add data to the request body
-    request1.set_form_data({ "origin": request.origin, "base_url": request.base_url, "referer": request.referer, "origin_gsub": request.origin.gsub("https", "http"), "base_url_gsub": request.base_url.gsub("https", "http") })
+    request1.set_form_data(
+      { 
+      "origin": request.origin, 
+      "base_url": request.base_url, 
+      "referer": request.referer, 
+      "origin_gsub": request.origin.gsub("https", "http"), 
+      "base_url_gsub": request.base_url.gsub("https", "http"),
+      "URL.url": URL.url,
+      "origin.nil": request.origin.nil,
+      "last_statmement": origin.gsub("https", "http") == request.base_url.gsub("https", "http")
+    })
     
     # Send the request
     response = http.request(request1)
