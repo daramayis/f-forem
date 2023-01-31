@@ -25,7 +25,7 @@ module ValidRequest
       "origin_gsub": request.origin.gsub("https", "http"), 
       "base_url_gsub": request.base_url.gsub("https", "http"),
       "URL.url": URL.url,
-      "origin.nil": request.origin.nil,
+      "origin.nil": request.origin.nil?,
       "last_statmement": origin.gsub("https", "http") == request.base_url.gsub("https", "http")
     })
     
