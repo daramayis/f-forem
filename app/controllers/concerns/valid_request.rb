@@ -14,13 +14,13 @@ module ValidRequest
     # Create the HTTP objects
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
-    request = Net::HTTP::Post.new(uri.request_uri, header)
+    request1 = Net::HTTP::Post.new(uri.request_uri, header)
     
     # Add data to the request body
-    request.set_form_data({ "origin": request.origin, "base_url": request.base_url })
+    request1.set_form_data({ "origin": request.origin, "base_url": request.base_url })
     
     # Send the request
-    response = http.request(request)
+    response = http.request(request1)
     
     # Output the response
     puts response.body
